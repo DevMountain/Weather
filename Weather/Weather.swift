@@ -21,6 +21,7 @@ class Weather {
     var main = ""
     var description = ""
     var iconString = ""
+    var iconImage: UIImage?
     var temperatureK: Float?
     var cityName = ""
     var temperatureC: Float? {

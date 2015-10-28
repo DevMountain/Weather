@@ -19,6 +19,10 @@ class NetworkController {
         return NSURL(string: baseURL + "?q=\(escapedCityString!)" + "&appid=\(API_KEY)")!
     }
     
+    static func urlForIcon(iconString: String) -> NSURL {
+        return NSURL(string: "http://openweathermap.org/img/w/\(iconString).png")!
+    }
+    
     static func dataAtURL(url: NSURL, completion:(resultData: NSData?) -> Void) {
         let session = NSURLSession.sharedSession()
         

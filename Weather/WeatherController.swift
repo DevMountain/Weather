@@ -41,4 +41,18 @@ class WeatherController {
 
         }
     }
+    
+    static func weatherIconForIconCode(iconCode: String, completion:(image: UIImage?) -> Void) {
+        let url = NetworkController.urlForIcon(iconCode)
+        
+        NetworkController.dataAtURL(url) { (resultData) -> Void in
+            guard let resultData = resultData
+                else {
+                    print("NO DATA RETURNED")
+                    completion(image: nil)
+                    return
+            }
+            completion(image: UIImage(data: resultData))
+        }
+    }
 }
